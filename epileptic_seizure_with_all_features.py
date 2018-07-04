@@ -7,68 +7,6 @@ Original file is located at
     https://colab.research.google.com/drive/1FkNPxwJy40VmKtGZSPVdBxHnfZpcvz2c
 """
 
-principalDf = pd.DataFrame(data = sne_reductionlda_redu, columns = ['principal component 1', 'principal component 2'])
-
-"""https://en.wikipedia.org/wiki/Early_stopping#Early_stopping_based_on_cross-validation
-https://en.wikipedia.org/wiki/Early_stopping#Early_stopping_based_on_cross-validation
-https://stackoverflow.com/questions/31155388/meaning-of-an-epoch-in-neural-networks-training
-http://inseaddataanalytics.github.io/INSEADAnalytics/CourseSessions/Sessions23/FactorAnalysisReading.html
-how to use features of pca
-https://chrisalbon.com/machine_learning/feature_engineering/feature_extraction_with_pca/
-"""
-
-#https://drive.google.com/open?id=1eF6wJcrZe7O88vwBTgt0TZBboqFxDFbS
-
-finalDf = pd.concat([principalDf, dataset[['y']]], axis = 1)
-
-fig = plt.figure(figsize = (8,8))
-ax = fig.add_subplot(1,1,1) 
-ax.set_xlabel('TSNE 1', fontsize = 15)
-ax.set_ylabel('TSNE 2', fontsize = 15)
-ax.set_title('2 component TSNE', fontsize = 20)
-targets = [1,2,3,4,5]
-colors = ['r', 'y', 'b','g','w']
-for target, color in zip(targets,colors):
-    indicesToKeep = finalDf['y'] == target
-    ax.scatter(finalDf.loc[indicesToKeep, 'principal component 1'] , finalDf.loc[indicesToKeep, 'principal component 2'] , c = color , s = 50)
-ax.legend(targets)
-ax.grid()
-
-principalDf = pd.DataFrame(data = lda_reductionlda_redu, columns = ['principal component 1', 'principal component 2'])
-
-from sklearn.manifold import TSNE 
-from sklearn.decomposition import PCA
-from sklearn.discriminant_analysis import LinearDiscriminantAnalysis as LDA
-
-finalDf = pd.concat([principalDf, dataset[['y']]], axis = 1)
-
-finalDf
-
-fig = plt.figure(figsize = (8,8))
-ax = fig.add_subplot(1,1,1) 
-ax.set_xlabel('Principal Component 1', fontsize = 15)
-ax.set_ylabel('Principal Component 2', fontsize = 15)
-ax.set_title('2 component PCA', fontsize = 20)
-targets = [1,2,3,4,5]
-colors = ['r', 'y', 'b','g','w']
-for target, color in zip(targets,colors):
-    indicesToKeep = finalDf['y'] == target
-    ax.scatter(finalDf.loc[indicesToKeep, 'principal component 1'] , finalDf.loc[indicesToKeep, 'principal component 2'] , c = color , s = 50)
-ax.legend(targets)
-ax.grid()
-
-sne_reductionlda_redu  = sne.fit_transform(x, y)
-
-lda_reductionlda_redu  = lda.fit_transform(x, y)
-
-variable
-
-
-
-
-
-
-
 import pandas as pd 
 import matplotlib.pyplot as plt
 
