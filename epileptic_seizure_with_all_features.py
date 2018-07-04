@@ -101,19 +101,6 @@ from keras.layers import LSTM
 from keras.layers import Dropout
 from keras import optimizers
 
-from sklearn import decomposition
-dataset.shape
-
-pca = decomposition.PCA(n_components=4)
-
-X_std_pca = pca.fit_transform(xTrain)
-
-X_std_pca.shape
-
-X_std_pca
-
-
-
 #Building time series model
 model = Sequential()
 
