@@ -1,7 +1,8 @@
 # Epileptic-Seizure-Detection
 Time Series classification for Epileptic Seizure on UCI dataset.
+https://archive.ics.uci.edu/ml/datasets/Epileptic+Seizure+Recognition
 
-Categorical classification using artificial neural network in two ways,
+Categorical classification using artificial neural network in two ways:
 
 First, using all the features in the model to allow the neural network to automatically tune according to the relevance of a feature.
 
